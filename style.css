@@ -1,0 +1,129 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    /* box-sizing: border-box; */
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Reset End */
+
+/* Miscellaneous Start */
+*, html{
+    box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #ebebeb;
+}
+
+h1{
+    font-size: 3em;
+    width: 100%;
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+.main{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Miscellaneous End */
+
+/* Setting Start */
+.settings{
+    position: absolute;
+    left: 0;
+    height: 80%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.settings > *{
+    width: 80%;
+    text-align: center;
+}
+
+button, .sliderCount, label{
+    font-size: 1.5rem;
+}
+
+button, input{
+    cursor: pointer;
+}
+
+#colorPicker{
+    border: none;
+    height: 8rem;
+    width: 8rem;
+}
+
+p{
+    margin-top: 1rem;
+}
+/* Settings End */
+
+/* Grid Area Start */
+.container{
+    margin-top: 5rem;
+    width: 40vw;
+    max-height: 100%;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    border: 1px solid black;
+}
+
+.gridDiv{
+    /* background: radial-gradient(white,black ); */
+    /* background-color: rebeccapurple; */
+    border: 1px solid black;
+}
+/* Grid Area End */
+
