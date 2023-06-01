@@ -1,10 +1,17 @@
-let DEFAULT_COLOR = '#000000';
 
 // Slider Function
 function makingGrid(){
     let slider = document.querySelector('#slider');
     let sliderCount = document.querySelectorAll('.sliderCount');
     let gridContainer = document.querySelector('.container');
+    let buttons = document.querySelectorAll('.buttonMode');
+
+    // ButtonHandler helper
+    buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            buttonHandler(buttons,e);
+        })
+    })
 
     gridContructor(gridContainer);
     creatingGridDivs(slider, gridContainer);
@@ -34,26 +41,28 @@ function gridContructor(gridContainer){
 
 // Creating Divs
 function creatingGridDivs(slider, gridContainer){
+    let rainbowModeButton = document.querySelector('.rainbowMode');
+    let eraserModeButton = document.querySelector('.eraser');
     for (let i = 0; i < slider.value ** 2; i++) {
         let gridDiv = document.createElement('div');
         gridDiv.classList.add('gridDiv');
-        gridDivEventHandler(gridDiv);
+        gridDivEventHandler(gridDiv,rainbowModeButton,eraserModeButton);
         gridContainer.appendChild(gridDiv);
     };
 };
 
 // Adding Events to Grid Divs
-function gridDivEventHandler(gridDiv){
+function gridDivEventHandler(gridDiv,rainbowModeButton,eraserModeButton){
     let colorPicker = document.querySelector('#colorPicker');
     gridDiv.addEventListener('mouseover', (e) => {
-        if (e.buttons == 1){
-            gridDiv.style.backgroundColor = colorPicker.value;
-        };
+        e.buttons == 1 && rainbowModeButton.classList.contains('mode') ? gridDiv.style.backgroundColor = `#${randomColor()}` :
+        e.buttons == 1 && eraserModeButton.classList.contains('mode') ? gridDiv.style.backgroundColor = '#ebebeb' :
+        e.buttons == 1 ? gridDiv.style.backgroundColor = colorPicker.value : '';
     });
     gridDiv.addEventListener('mousedown', (e) => {
-        if (e.buttons == 1){
-            gridDiv.style.backgroundColor = colorPicker.value;
-        };
+        e.buttons == 1 && rainbowModeButton.classList.contains('mode') ? gridDiv.style.backgroundColor = `#${randomColor()}` :
+        e.buttons == 1 && eraserModeButton.classList.contains('mode') ? gridDiv.style.backgroundColor = '#ebebeb' :
+        e.buttons == 1 ? gridDiv.style.backgroundColor = colorPicker.value : '';
     });
 };
 
@@ -74,10 +83,14 @@ function clear(){
     });
 };
 
-function rainbowMode(){
-
+function buttonHandler(buttons,e){
+    buttons.forEach(button => {
+        button.classList.remove('mode');
+    });
+    e.target.classList.add('mode');
 };
 
-function eraser(){
-
+function randomColor(){
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
 };

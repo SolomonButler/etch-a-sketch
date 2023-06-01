@@ -127,3 +127,8 @@ p{
 }
 /* Grid Area End */
 
+/* Button CLick Background Start*/
+.mode{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+/* Button CLick Background End*/
